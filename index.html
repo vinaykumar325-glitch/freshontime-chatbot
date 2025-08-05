@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh on Time - Fruit Bowl Delivery Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+      :root {
+        --chat--color-primary: #10B981;
+        --chat--color-primary-shade-50: #059669;
+        --chat--color-primary-shade-100: #047857;
+        --chat--color-secondary: #F97316;
+        --chat--color-secondary-shade-50: #EA580C;
+        --chat--color-white: #ffffff;
+        --chat--color-light: #f0fdf4;
+        --chat--color-light-shade-50: #dcfce7;
+        --chat--color-light-shade-100: #bbf7d0;
+        --chat--color-medium: #d1d5db;
+        --chat--color-dark: #1f2937;
+        --chat--color-disabled: #6b7280;
+        --chat--color-typing: #374151;
+
+        --chat--spacing: 1rem;
+        --chat--border-radius: 0.75rem;
+        --chat--transition-duration: 0.2s;
+
+        --chat--window--width: 400px;
+        --chat--window--height: 600px;
+
+        --chat--header-height: auto;
+        --chat--header--padding: var(--chat--spacing);
+        --chat--header--background: linear-gradient(135deg, var(--chat--color-primary), var(--chat--color-secondary));
+        --chat--header--color: var(--chat--color-white);
+        --chat--header--border-top: none;
+        --chat--header--border-bottom: none;
+        --chat--heading--font-size: 1.25em;
+        --chat--subtitle--font-size: 0.9em;
+        --chat--subtitle--line-height: 1.6;
+
+        --chat--textarea--height: 50px;
+
+        --chat--message--font-size: 0.95rem;
+        --chat--message--padding: 0.75rem 1rem;
+        --chat--message--border-radius: 1rem;
+        --chat--message-line-height: 1.6;
+        --chat--message--bot--background: var(--chat--color-light);
+        --chat--message--bot--color: var(--chat--color-dark);
+        --chat--message--bot--border: 1px solid var(--chat--color-light-shade-50);
+        --chat--message--user--background: var(--chat--color-primary);
+        --chat--message--user--color: var(--chat--color-white);
+        --chat--message--user--border: none;
+        --chat--message--pre--background: rgba(16, 185, 129, 0.1);
+
+        --chat--toggle--background: linear-gradient(135deg, var(--chat--color-primary), var(--chat--color-secondary));
+        --chat--toggle--hover--background: linear-gradient(135deg, var(--chat--color-primary-shade-50), var(--chat--color-secondary-shade-50));
+        --chat--toggle--active--background: linear-gradient(135deg, var(--chat--color-primary-shade-100), var(--chat--color-secondary-shade-50));
+        --chat--toggle--color: var(--chat--color-white);
+        --chat--toggle--size: 64px;
+      }
+      
+      /* Custom bot icon styling */
+      .n8n-chat .chat-toggle {
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        transition: all 0.3s ease;
+      }
+      
+      .n8n-chat .chat-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+      createChat({
+        webhookUrl: 'https://vinayn8n143.app.n8n.cloud/webhook/c79715b4-dfe9-458b-b5b0-7e44210c4c11/chat',
+        chatInputPlaceholder: 'Ask our Fruit Bot anything about fresh bowls...',
+        chatWindowTitle: '🍎 Fresh on Time Fruit Bot',
+        welcomeMessage: 'Hi! I\'m your Fruit Bot 🍓 How can I help you with fresh fruit bowls today?',
+        getStarted: 'Get Started',
+        botAvatarUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGV4dCBpZD0iYm90LWJnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwQjk4MSIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGOTczMTYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L2V4dD4KPCEtLSBCb3QgRmFjZSAtLT4KPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMiIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iMjUiIGN5PSIxNSIgcj0iMiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE0IDI2IFEyMCAzMCAyNiAyNiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPCEtLSBGcnVpdCBFbGVtZW50cyAtLT4KPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMyIgZmlsbD0iI0ZGNjI2MiIgb3BhY2l0eT0iMC44Ii8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMTIiIHI9IjIuNSIgZmlsbD0iI0ZGRDcwMCIgb3BhY2l0eT0iMC44Ii8+CjxjaXJjbGUgY3g9IjgiIGN5PSIzMCIgcj0iMiIgZmlsbD0iIzk4NTVGRiIgb3BhY2l0eT0iMC44Ii8+Cjwvc3ZnPgo='
+      });
+    </script>
+  </body>
+</html>
